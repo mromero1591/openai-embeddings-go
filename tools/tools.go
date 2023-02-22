@@ -3,8 +3,8 @@ package tools
 import (
 	"fmt"
 
-	openaiembeddingsgo "github.com/mromero1591/openai-embeddings-g"
-	"github.com/mromero1591/openai-embeddings-g/pinecone"
+	openaiembeddingsgo "github.com/mromero1591/openai-embeddings-go"
+	"github.com/mromero1591/openai-embeddings-go/pinecone"
 )
 
 func FormatOpenAIEmbeddingToPineconeVector(inputs []string, keys []string, embeddings []openaiembeddingsgo.OpenAIEmbedding) {

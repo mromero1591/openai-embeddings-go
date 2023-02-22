@@ -40,12 +40,12 @@ func (p *PineconeIndexConfig) SetPineconeIndexDefaults() {
 	}
 }
 
-func (c Client) CreatePineconeIndex(indexConfig PineconeIndexConfig, dimension int) error {
+func (c Client) CreatePineconeIndex(indexConfig PineconeIndexConfig) error {
 	if indexConfig.Name == "" {
 		return errors.New("missing Name in index config")
 	}
 
-	if dimension == 0 {
+	if indexConfig.Dimension == 0 {
 		return errors.New("missing dimension in index config")
 	}
 
