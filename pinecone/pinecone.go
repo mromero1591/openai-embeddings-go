@@ -126,6 +126,16 @@ func (c Client) QueryPineconeIndex(index string, requestBody PineconeQueryIndexR
 	}
 	defer response.Body.Close()
 
+	if response.StatusCode != http.StatusOK {
+		var errorResponse PineconeDefaultErrorResponse
+		if err := json.NewDecoder(response.Body).Decode(&errorResponse); err != nil {
+			return PineconeQueryIndexResponse{}, err
+		}
+
+		return PineconeQueryIndexResponse{}, fmt.Errorf("code: %d | ErrorMessage: %s", response.StatusCode, errorResponse.Message)
+
+	}
+
 	var pineconeQueryIndexResponse PineconeQueryIndexResponse
 	if err := json.NewDecoder(response.Body).Decode(&pineconeQueryIndexResponse); err != nil {
 		return PineconeQueryIndexResponse{}, err

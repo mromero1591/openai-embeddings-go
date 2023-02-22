@@ -52,4 +52,15 @@ type (
 	PineconeMetaData struct {
 		Text string `json:"text"`
 	}
+
+	PineconeDefaultErrorResponse struct {
+		Code    int                           `json:"code"`
+		Message string                        `json:"message"`
+		Details []PineconeDefaultErrorDetails `json:"details"`
+	}
+
+	PineconeDefaultErrorDetails struct {
+		TypeURL string `json:"typeUrl"`
+		Value   string `json:"value"`
+	}
 )
