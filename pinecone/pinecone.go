@@ -113,7 +113,7 @@ func (c Client) UpsertPineconeIndex(index string, requestBody PineconeUpsertInde
 }
 
 func (c Client) QueryPineconeIndex(index string, requestBody PineconeQueryIndexRequest) (PineconeQueryIndexResponse, error) {
-	url := fmt.Sprintf("https://%s-%s.svc.%s.pinecone.io/vectors/query", index, c.ProjectID, c.Environment)
+	url := fmt.Sprintf("https://%s-%s.svc.%s.pinecone.io/query", index, c.ProjectID, c.Environment)
 
 	requestBodyBytes, _ := json.Marshal(requestBody)
 	request, _ := http.NewRequest(http.MethodPost, url, bytes.NewReader(requestBodyBytes))
