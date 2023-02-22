@@ -83,7 +83,7 @@ func (c Client) ListPineconeIndexes() (PineconeListIndexResponse, error) {
 	defer response.Body.Close()
 
 	var pineconeListIndexResponse PineconeListIndexResponse
-	if err := json.NewDecoder(response.Body).Decode(&pineconeListIndexResponse); err != nil {
+	if err := json.NewDecoder(response.Body).Decode(&pineconeListIndexResponse.Indexes); err != nil {
 		return PineconeListIndexResponse{}, err
 	}
 
