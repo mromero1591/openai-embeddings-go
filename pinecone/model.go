@@ -50,7 +50,10 @@ type (
 	}
 
 	PineconeMetaData struct {
-		Text string `json:"text"`
+		Text        string `json:"text"`
+		RecordingID string `json:"recordingId"`
+		MapId       string `json:"mapId"`
+		CustomerID  string `json:"customerId"`
 	}
 
 	PineconeDefaultErrorResponse struct {
